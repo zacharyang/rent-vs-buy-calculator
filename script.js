@@ -275,11 +275,11 @@ form.addEventListener("submit", (event) => {
   const result = runModel(inputs);
   latestResult = result;
   renderResults(result);
+  results.classList.remove("hidden");
   renderTrendChart("netWorth");
   toggleButtons.forEach((button) => {
     button.classList.toggle("active", button.dataset.view === "netWorth");
   });
-  results.classList.remove("hidden");
 });
 
 toggleButtons.forEach((button) => {
