@@ -126,9 +126,36 @@ button:hover {
   color: #fff;
 }
 
+.chart-canvas-wrap {
+  position: relative;
+  width: 100%;
+  height: clamp(260px, 42vh, 520px);
+}
+
 #trendChart {
   width: 100%;
-  height: 360px;
+  height: 100%;
+}
+
+@media (max-width: 900px) {
+  .chart-canvas-wrap {
+    height: clamp(240px, 50vh, 460px);
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    margin: 1rem auto;
+    padding: 0.75rem;
+  }
+
+  .chart-canvas-wrap {
+    height: clamp(220px, 48vh, 360px);
+  }
+
+  .chart-controls .toggle-btn {
+    flex: 1 1 100%;
+  }
 }
 
 table {
