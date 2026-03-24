@@ -97,6 +97,40 @@ button:hover {
   padding: 1rem;
 }
 
+.chart-section {
+  margin-top: 1.25rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: #fff;
+  padding: 1rem;
+}
+
+.chart-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+
+.toggle-btn {
+  background: #e5e7eb;
+  color: #111827;
+}
+
+.toggle-btn:hover {
+  background: #d1d5db;
+}
+
+.toggle-btn.active {
+  background: #1d4ed8;
+  color: #fff;
+}
+
+#trendChart {
+  width: 100%;
+  height: 360px;
+}
+
 table {
   width: 100%;
   border-collapse: collapse;

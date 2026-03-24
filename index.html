@@ -20,12 +20,10 @@
           <label>Down Payment (%)<input name="downPct" type="number" min="0" max="100" step="0.1" value="20" required /></label>
           <label>Mortgage Rate (%)<input name="mortgageRate" type="number" min="0" step="0.01" value="6.5" required /></label>
           <label>Loan Term (years)<input name="loanYears" type="number" min="1" step="1" value="30" required /></label>
-          <label>Buy Closing Costs (%)<input name="buyClosingPct" type="number" min="0" step="0.1" value="3" required /></label>
-          <label>Sell Closing Costs (%)<input name="sellClosingPct" type="number" min="0" step="0.1" value="6" required /></label>
-          <label>Property Tax (% / year)<input name="propertyTaxPct" type="number" min="0" step="0.01" value="1.2" required /></label>
-          <label>Home Insurance (% / year)<input name="homeInsPct" type="number" min="0" step="0.01" value="0.35" required /></label>
-          <label>Maintenance (% / year)<input name="maintPct" type="number" min="0" step="0.01" value="1" required /></label>
-          <label>HOA ($ / month)<input name="hoaMonthly" type="number" min="0" step="10" value="0" required /></label>
+          <label>Buy Closing Costs ($)<input name="buyClosingCost" type="number" min="0" step="500" value="15000" required /></label>
+          <label>Property Tax ($ / year)<input name="propertyTaxAnnual" type="number" min="0" step="100" value="6000" required /></label>
+          <label>Home Insurance ($ / year)<input name="homeInsuranceAnnual" type="number" min="0" step="100" value="1800" required /></label>
+          <label>Maintenance ($ / year)<input name="maintenanceAnnual" type="number" min="0" step="100" value="5000" required /></label>
           <label>Home Appreciation (% / year)<input name="appreciation" type="number" step="0.01" value="3" required /></label>
         </fieldset>
 
@@ -34,6 +32,7 @@
           <label>Rent ($ / month)<input name="monthlyRent" type="number" min="0" step="50" value="2500" required /></label>
           <label>Rent Increase (% / year)<input name="rentIncrease" type="number" min="0" step="0.01" value="3" required /></label>
           <label>Renter Insurance ($ / month)<input name="rentersInsMonthly" type="number" min="0" step="5" value="20" required /></label>
+          <label>Maintenance ($ / month)<input name="rentMaintenanceMonthly" type="number" min="0" step="10" value="50" required /></label>
           <label>Investment Return (% / year)<input name="investReturn" type="number" step="0.01" value="5" required /></label>
           <label>Comparison Horizon (years)<input name="horizonYears" type="number" min="1" step="1" value="7" required /></label>
         </fieldset>
@@ -89,9 +88,19 @@
             </tr>
           </tbody>
         </table>
+
+        <section class="chart-section">
+          <h3>Trend Over Time</h3>
+          <div class="chart-controls">
+            <button type="button" class="toggle-btn active" data-view="netWorth">Net Worth Over Time</button>
+            <button type="button" class="toggle-btn" data-view="components">Interest vs Rent vs Appreciation</button>
+          </div>
+          <canvas id="trendChart" aria-label="Trend chart over time" role="img"></canvas>
+        </section>
       </section>
     </main>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
     <script src="./script.js"></script>
   </body>
 </html>
