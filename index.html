@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Rent vs Buy Decision Model</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Rent vs Buy Decision Model</h1>
+      <p class="intro">
+        Compare buying versus renting based on your assumptions. This is an educational tool, not financial advice.
+      </p>
+
+      <form id="model-form" class="grid">
+        <fieldset>
+          <legend>Home Purchase</legend>
+          <label>Home Price ($)<input name="homePrice" type="number" min="0" step="1000" value="500000" required /></label>
+          <label>Down Payment (%)<input name="downPct" type="number" min="0" max="100" step="0.1" value="20" required /></label>
+          <label>Mortgage Rate (%)<input name="mortgageRate" type="number" min="0" step="0.01" value="6.5" required /></label>
+          <label>Loan Term (years)<input name="loanYears" type="number" min="1" step="1" value="30" required /></label>
+          <label>Buy Closing Costs (%)<input name="buyClosingPct" type="number" min="0" step="0.1" value="3" required /></label>
+          <label>Sell Closing Costs (%)<input name="sellClosingPct" type="number" min="0" step="0.1" value="6" required /></label>
+          <label>Property Tax (% / year)<input name="propertyTaxPct" type="number" min="0" step="0.01" value="1.2" required /></label>
+          <label>Home Insurance (% / year)<input name="homeInsPct" type="number" min="0" step="0.01" value="0.35" required /></label>
+          <label>Maintenance (% / year)<input name="maintPct" type="number" min="0" step="0.01" value="1" required /></label>
+          <label>HOA ($ / month)<input name="hoaMonthly" type="number" min="0" step="10" value="0" required /></label>
+          <label>Home Appreciation (% / year)<input name="appreciation" type="number" step="0.01" value="3" required /></label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Rent + Investment</legend>
+          <label>Rent ($ / month)<input name="monthlyRent" type="number" min="0" step="50" value="2500" required /></label>
+          <label>Rent Increase (% / year)<input name="rentIncrease" type="number" min="0" step="0.01" value="3" required /></label>
+          <label>Renter Insurance ($ / month)<input name="rentersInsMonthly" type="number" min="0" step="5" value="20" required /></label>
+          <label>Investment Return (% / year)<input name="investReturn" type="number" step="0.01" value="5" required /></label>
+          <label>Comparison Horizon (years)<input name="horizonYears" type="number" min="1" step="1" value="7" required /></label>
+        </fieldset>
+
+        <div class="actions">
+          <button type="submit">Run Comparison</button>
+        </div>
+      </form>
+
+      <section id="results" class="results hidden">
+        <h2>Results</h2>
+        <div class="cards">
+          <article class="card">
+            <h3>Outcome</h3>
+            <p id="outcome"></p>
+          </article>
+          <article class="card">
+            <h3>Buyer Net Worth</h3>
+            <p id="buyerNetWorth"></p>
+          </article>
+          <article class="card">
+            <h3>Renter Net Worth</h3>
+            <p id="renterNetWorth"></p>
+          </article>
+          <article class="card">
+            <h3>Break-even Point</h3>
+            <p id="breakEven"></p>
+          </article>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Metric</th>
+              <th>Buy</th>
+              <th>Rent</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Total Outflows</td>
+              <td id="buyOutflows"></td>
+              <td id="rentOutflows"></td>
+            </tr>
+            <tr>
+              <td>Ending Asset Value</td>
+              <td id="buyAssets"></td>
+              <td id="rentAssets"></td>
+            </tr>
+            <tr>
+              <td>Difference (Buy - Rent)</td>
+              <td colspan="2" id="delta"></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
